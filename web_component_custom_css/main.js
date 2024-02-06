@@ -5,10 +5,10 @@ class EmailInfo extends HTMLElement {
     this._fromLabel.innerHTML = "From: ";
     this._fromValue = document.createElement("span");
     this._fromValue.innerHTML = "rogelio@gudino.com";
-    this._fromValue.style.backgroundColor = "var(--from-bg-color)";
+    this._fromValue.style.backgroundColor = "var(--from-bg-color, cyan)";
     this._subject = document.createElement("span");
     this._subject.innerHTML = "This is the subject";
-    this._subject.style.backgroundColor = "var(--subject-bg-color)";
+    this._subject.style.backgroundColor = "var(--subject-bg-color, magenta)";
   }
 
   connectedCallback() {
@@ -21,16 +21,18 @@ class EmailInfo extends HTMLElement {
 customElements.define("email-info", EmailInfo);
 
 function initializeUI() {
-  const html = document.body;
-  html.style.margin = "0";
-  html.style.padding = "0";
-
-  const emailInfo = document.createElement("email-info");
-  emailInfo.style.setProperty("--from-bg-color", "green");
-  emailInfo.style.setProperty("--subject-bg-color", "red");
-
   const body = document.body;
-  body.appendChild(emailInfo);
+  body.style.margin = "0";
+  body.style.padding = "0";
+
+  const emailInfoGreenRed = document.createElement("email-info");
+  emailInfoGreenRed.style.setProperty("--from-bg-color", "green");
+  emailInfoGreenRed.style.setProperty("--subject-bg-color", "red");
+
+  const emailInfoDefault = document.createElement("email-info");
+
+  body.appendChild(emailInfoGreenRed);
+  body.appendChild(emailInfoDefault);
 };
 
 function main() {

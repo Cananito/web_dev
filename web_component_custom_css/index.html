@@ -5,15 +5,18 @@
         <meta name="viewport" content="width=device-width" />
         <script src="main.js"></script>
         <style>
-          email-info {
+          #blueyellow {
             --from-bg-color: blue;
             --subject-bg-color: yellow;
+          }
+          email-info {
+            --from-bg-color: black;
+            --subject-bg-color: black;
+            display: block;
           }
         </style>
     </head>
     <body>
-      <email-info />
-      <br />
-      <br />
+      <email-info id="blueyellow"></email-info>
     </body>
 </html>
