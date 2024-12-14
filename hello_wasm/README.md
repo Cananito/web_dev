@@ -2,6 +2,8 @@
 
 ## Instructions
 
+Prerequisite: a Clang version that supports WASM output. Notably the one that comes from Xcode command line tools doesn't.
+
 1. cd into this directory.
 
 2. Compile the C code to WASM:
