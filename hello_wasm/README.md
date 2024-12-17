@@ -12,6 +12,12 @@ Prerequisite: a Clang version that supports WASM output. Notably the one that co
 clang --target=wasm32 -nostdlib -Wl,--no-entry -Wl,--export-all -Wl,--allow-undefined -o some.wasm some.c
 ```
 
+To enable debugging, install goo.gle/wasm-debugging-extension and compile without optimizations and debug flag:
+
+```
+clang -O0 -g --target=wasm32 -nostdlib -Wl,--no-entry -Wl,--export-all -Wl,--allow-undefined -o some.wasm some.c
+```
+
 3. Start a webserver to serve this directory:
 
 ```
