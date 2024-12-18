@@ -2,15 +2,16 @@ let resultLabel;
 let helloLabel;
 let wasmObj;
 
-function string_from_pointer(pointer, length) {
-  const wasmBuffer = wasmObj.instance.exports.memory.buffer;
-  const string_bytes = new Uint8Array(wasmBuffer, pointer, length);
-  let string = new TextDecoder().decode(string_bytes);
+function stringFromCCharPointer(cCharPointer, length) {
+  const wasmMemoryBuffer = wasmObj.instance.exports.memory.buffer;
+  const stringBuffer = new Uint8Array(wasmMemoryBuffer, cCharPointer, length);
+  let string = new TextDecoder().decode(stringBuffer);
   return string;
 }
 
-function r_js_print(message, message_length) {
-  helloLabel.innerHTML = string_from_pointer(message, message_length);
+function r_js_print(messageCCharPointer, messageLength) {
+  helloLabel.innerHTML = stringFromCCharPointer(messageCCharPointer,
+                                                messageLength);
 }
 
 function initializeUI() {
