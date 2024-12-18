@@ -1,4 +1,4 @@
-# Hello, WASM
+# WASM, Hello, C
 
 ## Instructions
 
